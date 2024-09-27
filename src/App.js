@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { useSelector } from 'react-redux';
+import ColorChanger from './ColorChange';
 
-function App() {
+const App = () => {
+  const backgroundColor = useSelector((state) => state.col.color);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ backgroundColor, height: '100vh', padding: '20px' }}>
+      <h1>Click buttons to change background color</h1>
+      <ColorChanger />
     </div>
   );
-}
+};
 
 export default App;
